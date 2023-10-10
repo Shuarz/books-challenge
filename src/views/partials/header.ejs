@@ -11,8 +11,23 @@
     </ul>
 
     <div class="col-md-3 text-end">
+
+      <% if (locals.isLogged) { %>
+        <p>Hola <%= locals.name %></p>
+        <% if (locals.admin == 1) { %>
+         <p>Usted es ADMIN</p>
+        <% } %>
+        <% if (locals.admin == 2) { %>
+          <p>Usted no es ADMIN</p>
+        <% } %>  
+        <a href="/users/logout" class="btn btn-outline-primary me-2">Log Out</a>  
+        <% } else { %>
+
       <a href="/users/login" class="btn btn-outline-primary me-2">Login</a>
       <a href="/users/register" class="btn btn-outline-primary me-2">Sign-up</a>
+
+      <% } %>      
+
     </div>
   </header>
 </div>
