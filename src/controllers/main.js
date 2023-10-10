@@ -10,18 +10,19 @@ const mainController = {
     })
       .then((books) => {
         res.render('home', { books });
-      })
+    })
       .catch((error) => console.log(error));
   },
   
   bookDetail: (req, res) => {
     // Implement look for details in the database
+
     db.Book.findByPk(req.params.id, {
       include: [{ association: 'authors' }]
     })
       .then((book) => {
     res.render('bookDetail', { book });
-  })
+    })
   .catch((error) => console.log(error));;
   },
 
@@ -30,6 +31,7 @@ const mainController = {
   },
   bookSearchResult: (req, res) => {
     // Implement search by title
+
     let {title} = req.body
     db.Book.findAll({
       where: {title: {[Op.like]: '%' + title + '%'}},
@@ -38,7 +40,7 @@ const mainController = {
       .then((books) => {
 
       res.render('search', { books });
-       })
+    })
       .catch((error) => console.log(error));
   },
   deleteBook: (req, res) => {
@@ -54,7 +56,15 @@ const mainController = {
   },
   authorBooks: (req, res) => {
     // Implement books by author
-    res.render('authorBooks');
+
+    db.Author.findByPk(req.params.id, {
+      include: [{ association: 'books' }]
+    })
+    .then((author) => {
+    res.render('authorBooks', {author});
+    })
+    .catch((error) => console.log(error));
+
   },
   register: (req, res) => {
     res.render('register');
