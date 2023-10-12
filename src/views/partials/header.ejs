@@ -12,21 +12,22 @@
 
     <div class="col-md-3 text-end">
 
-      <% if (locals.isLogged) { %>
-        <p>Hola <%= locals.name %></p>
-        <% if (locals.admin == 1) { %>
-         <p>Usted es ADMIN</p>
-        <% } %>
-        <% if (locals.admin == 2) { %>
-          <p>Usted no es ADMIN</p>
-        <% } %>  
-        <a href="/users/logout" class="btn btn-outline-primary me-2">Log Out</a>  
-        <% } else { %>
-
-      <a href="/users/login" class="btn btn-outline-primary me-2">Login</a>
-      <a href="/users/register" class="btn btn-outline-primary me-2">Sign-up</a>
-
-      <% } %>      
+      <ul>
+        <% if (locals.isLogged) { %>
+         <a href="/users/profile" class="navbar-item">
+            <div class="header-userprofile">
+              <i class="fa-solid fa-user"></i>
+             <p>Hola </p> <%= locals.userLogged.Name %>
+            </div>             
+          </a>
+        <a href="/users/logout" class="btn btn-outline-primary me-2">Cerrar Sesion</a>
+      </ul>
+          <% } else { %>
+      <ul>
+        <a href="/users/register" class="btn btn-outline-primary me-2">Iniciar Sesion</a>
+        <a href="/users/login" class="btn btn-outline-primary me-2">Login</a>
+      </ul>
+          <% } %>  
 
     </div>
   </header>
