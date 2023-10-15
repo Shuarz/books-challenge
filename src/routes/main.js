@@ -17,7 +17,7 @@ router.get('/users/register', guestMiddleware, mainController.register);
 router.post('/users/register', validation, mainController.processRegister);
 router.get('/users/login', guestMiddleware, mainController.login);
 router.post('/users/login', mainController.processLogin);
-router.get('/users/profile', authMiddleware, mainController.profile);
+router.get('/users/profile', authMiddleware, mainController.home);  
 router.delete('/delete/:id',authMiddleware, adminMiddleware, mainController.deleteBook);
 router.get('/books/edit/:id', authMiddleware, adminMiddleware, mainController.edit);
 router.put('/books/edit/:id', mainController.processEdit);

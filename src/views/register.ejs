@@ -17,8 +17,10 @@
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-xl-9">
   
-          <h1 class="text-white mb-4">Register a new user</h1>
-  
+          <h1 class="text-white mb-4">Registrarse</h1>
+          <div class="alert-danger" >
+            <ul id="errores"></ul>
+          </div>
           <form action="/users/register" method="POST" class="card" style="border-radius: 15px;">
             <div class="card-body">
   
@@ -34,8 +36,6 @@
                   <% if(locals.errors && errors.name) { %>  
                     <p class="alert-danger"><%= errors.name.msg %> </p>
                   <%}%>
-
-
   
                 </div>
               </div>
@@ -54,8 +54,6 @@
                   <% if(locals.errors && errors.email) { %>  
                     <p class="alert-danger"><%= errors.email.msg %> </p>
                   <%}%>   
-
-
   
                 </div>
               </div>
@@ -70,7 +68,7 @@
                 </div>
                 <div class="col-md-9 pe-5">
   
-                  <input type="text" name="country" class="form-control form-control-lg" placeholder="Argentina" value="<%=locals.oldData && oldData.country? oldData.country:null%>"/>
+                  <input type="text" name="country" class="form-control form-control-lg" placeholder="Argentina"  value="<%=locals.oldData && oldData.country? oldData.country:null%>"/>
                   <% if(locals.errors && errors.country) { %>  
                     <p class="alert-danger"><%= errors.country.msg %> </p>
                   <%}%> 
@@ -91,7 +89,7 @@
                   <input type="password" name="password" class="form-control form-control-lg" >
                   <% if(locals.errors && errors.password) { %>  
                     <p class="alert-danger"><%= errors.password.msg %> </p>
-                  <%}%> 
+                  <%}%>   
   
                 </div>
               </div>

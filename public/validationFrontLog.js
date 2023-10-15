@@ -10,15 +10,15 @@ window.addEventListener("load", function () {
         var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
         
         if (emailvjs.value == "") {
-            errores.push("Email cannot be empty");
+            errores.push("Email no puede estar vacio");
          } else if (!(emailvjs.value.match(validRegex))){
-            errores.push("This email doesn't have a valid format")
+            errores.push("formato no valido en el mail")
         }
              
         // password
         let passvjs  = document.getElementById("password");
         if (passvjs.value == "") {
-            errores.push("Password must be written");
+            errores.push("Se debe escribir la contraseña");
         }
         
         //ul

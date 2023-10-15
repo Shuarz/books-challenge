@@ -91,7 +91,7 @@ const mainController = {
   if(authorBooks){
     res.render('authorBooks',{books:authorBooks})
   }else{
-    res.send('No fue encontrado el autor.');
+    res.send('The author was not found.');
   }
 },
 
@@ -111,7 +111,7 @@ const mainController = {
       return res.render('register', {
           errors: {
               email: {
-                  msg: 'Este mail ya esta registrado'
+                  msg: 'This email is already registered'
               },
           },
           oldData: req.body
@@ -189,7 +189,7 @@ const mainController = {
     if(bookToEdit){
       res.render('editBook', {book:bookToEdit})
     }else{
-      res.send('El libro no fue encontrado.');
+      res.send('The book was not found.');
     }  
     },
 

@@ -1,5 +1,5 @@
 window.addEventListener("load", function () {
-    console.log("probnaod probando");
+    console.log("probando probando");
     let form = document.querySelector("form.card");
     form.addEventListener("submit", function (evento) {
         evento.preventDefault();
@@ -8,17 +8,17 @@ window.addEventListener("load", function () {
         let namevjs = document.getElementById("name");
         console.log(namevjs);
         if (namevjs.value == "") {
-            errores.push("Name cannot be empty");
-        } else if (namevjs.value.length < 3) {
-            errores.push("Name must be 3 letters min")
+            errores.push("nombre no puede estar vacio");
+        } else if (namevjs.value.length < 5) {
+            errores.push("el nombre debe llevar minimo 5 letras")
             console.log(namevjs.value.length);
         }
          // country
         let countryvjs = document.getElementById("country");
         if (countryvjs.value == "") {
-            errores.push("Country cannot be empty");
-            } else if (countryvjs.value.length < 3) {
-            errores.push("Name must be 3 letters min")
+            errores.push("pais no puede estar vacio");
+            } else if (countryvjs.value.length < 5) {
+            errores.push("el nombre debe llevar minimo 5 letras")
             }
 
         // email
@@ -26,21 +26,21 @@ window.addEventListener("load", function () {
         var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
         
         if (emailvjs.value == "") {
-            errores.push("Email cannot be empty");
+            errores.push("Email no puede estar vacio");
          } else if (!(emailvjs.value.match(validRegex))){
-            errores.push("This email doesn't have a valid format")
+            errores.push("formato no valido en el mail")
         }
         
         // password
         let passvjs  = document.getElementById("password");
         if (passvjs.value == "") {
-            errores.push("Password must be written");
+            errores.push("Se debe escribir la contraseña");
         }
         // category
         let catvjsadmin  = document.getElementById("admin").checked;
         let catvjsuser = document.getElementById('user').checked;
         if (catvjsadmin == false && catvjsuser == false) {
-            errores.push("Category must be selected");
+            errores.push("seleccionar categoria");
         }
         
         //ul
